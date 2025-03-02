@@ -7,7 +7,7 @@ export default function Home() {
       <h1 style={{ textAlign: "center" }}>모두의 (투명한) 돼지저금통</h1>
       <Image
         style={{
-          margin: "0 auto",
+          margin: "50px auto 0",
         }}
         src={hamm}
         width={500}
