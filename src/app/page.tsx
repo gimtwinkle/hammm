@@ -1,23 +1,20 @@
 import Image from "next/image";
 import hamm from "@/resources/images/hammm.jpg";
-import { supabase } from "@/lib/supabaseClient";
-import { PostgrestError } from "@supabase/supabase-js";
 
-type Board = {
-  id: string;
-  title: string;
-  content: string;
-  created_at: string;
-};
+async function getBoards() {
+  const res = await fetch("http://localhost:3000/api/board", {
+    cache: "no-store", // SSR을 위한 설정
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch boards");
+  }
+
+  return res.json();
+}
 
 export default async function Home() {
-  const {
-    data: boards,
-    error,
-  }: { data: Board[] | null; error: PostgrestError | null } = await supabase
-    .from("board")
-    .select("*")
-    .order("created_at", { ascending: false });
+  const board = await getBoards();
 
   return (
     <div>
@@ -37,14 +34,14 @@ export default async function Home() {
         }}
       >
         <h2>Data 출력 테스트</h2>
-        {error && (
+        {board.error && (
           <p style={{ color: "red" }}>
             게시글을 불러오는 중 오류가 발생했습니다.
           </p>
         )}
-        {!error && boards && (
+        {!board.error && board && (
           <ul>
-            {boards.map((board) => (
+            {board.map((board) => (
               <li key={board.id}>
                 <h2>{board.title}</h2>
                 <p>{board.content}</p>
