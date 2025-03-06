@@ -2,7 +2,7 @@ import Image from "next/image";
 import hamm from "@/resources/images/hammm.jpg";
 
 async function getBoards() {
-  const res = await fetch("http://localhost:3000/api/board", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/board`, {
     cache: "no-store", // SSR을 위한 설정
   });
 
