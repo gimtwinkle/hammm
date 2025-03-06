@@ -41,7 +41,7 @@ export default async function Home() {
         )}
         {!board.error && board && (
           <ul>
-            {board.map((board) => (
+            {board.map((board: any) => (
               <li key={board.id}>
                 <h2>{board.title}</h2>
                 <p>{board.content}</p>
