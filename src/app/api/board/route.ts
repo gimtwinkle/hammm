@@ -3,17 +3,42 @@ import { BoardInput } from "@/types/api/common";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  try {
   // ❌ 타입 불필요: Supabase가 자동으로 추론
   const { data, error } = await supabase.from("board").select("*");
 
   if (error) {
+    console.error("Supabase error:", {
+      message: error.message,
+      details: error.details,
+      hint: error.hint,
+      code: error.code
+    });
+    
     return NextResponse.json(
-      { error: "Failed to fetch boards" },
+      { 
+        error: "Database error",
+        details: error.message,
+        code: error.code
+      },
       { status: 500 }
     );
   }
 
   return NextResponse.json(data);
+  
+} catch (e){
+  console.error("Unexpected error:", e);
+    
+    const error = e as Error;
+    return NextResponse.json(
+      { 
+        error: "Server error",
+        message: error.message,
+        stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+      },
+      { status: 500 }
+    );
 }
 
 // POST /api/board
