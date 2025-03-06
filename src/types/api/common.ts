@@ -7,9 +7,9 @@ export type Board = BoardInput & {
   id: number;
 };
 
-export type RouteParams = {
+export type RouteContext = {
   params: {
-    id: string; // Next.js는 URL 파라미터를 항상 string으로 전달
+    id: string;
   };
 };
 

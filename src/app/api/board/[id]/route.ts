@@ -1,15 +1,18 @@
 // PUT /api/board/:id
 
 import { supabase } from "@/lib/supabaseClient";
-import { BoardInput, RouteParams } from "@/types/api/common";
+import { BoardInput } from "@/types/api/common";
 import { PostgrestError } from "@supabase/supabase-js";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // ✅ 타입 필수: Request와 params 매개변수
-export async function PUT(request: Request, { params }: RouteParams) {
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   try {
     // ❌ 타입 불필요: 자동 추론됨
-    const id = parseInt(params.id); // string -> number 변환
+    const id = parseInt((await params).id); // string -> number 변환
     // ✅ 타입 필수: request.json()의 결과물
     const body: BoardInput = await request.json();
     // 1. 먼저 게시글이 존재하는지 확인
@@ -47,8 +50,11 @@ export async function PUT(request: Request, { params }: RouteParams) {
   }
 }
 
-export async function DELETE(request: Request, { params }: RouteParams) {
-  const id = parseInt(params.id);
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const id = parseInt((await params).id);
   const { error } = await supabase.from("board").delete().eq("id", id);
   if (error) {
     return NextResponse.json(

@@ -2,7 +2,10 @@ import Image from "next/image";
 import hamm from "@/resources/images/hammm.jpg";
 
 async function getBoards() {
-  const res = await fetch("http://localhost:3000/api/board", {
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_URL ||
+    "https://hammm-git-dev-gimtwinkles-projects.vercel.app";
+  const res = await fetch(`${API_URL}/api/board`, {
     cache: "no-store", // SSR을 위한 설정
   });
 
@@ -41,7 +44,7 @@ export default async function Home() {
         )}
         {!board.error && board && (
           <ul>
-            {board.map((board) => (
+            {board.map((board: any) => (
               <li key={board.id}>
                 <h2>{board.title}</h2>
                 <p>{board.content}</p>
