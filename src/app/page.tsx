@@ -1,23 +1,21 @@
 import Image from "next/image";
 import hamm from "@/resources/images/hammm.jpg";
 
-async function getBoards() {
-  const API_URL =
-    process.env.NEXT_PUBLIC_API_URL ||
-    "https://hammm-git-dev-gimtwinkles-projects.vercel.app";
-  const res = await fetch(`${API_URL}/api/board`, {
-    cache: "no-store", // SSR을 위한 설정
-  });
+// async function getBoards() {
+//   const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://hammm.vercel.app";
+//   const res = await fetch(`${API_URL}/api/board`, {
+//     cache: "no-store", // SSR을 위한 설정
+//   });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch boards");
-  }
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch boards");
+//   }
 
-  return res.json();
-}
+//   return res.json();
+// }
 
 export default async function Home() {
-  const board = await getBoards();
+  // const board = await getBoards();
 
   return (
     <div>
@@ -37,7 +35,7 @@ export default async function Home() {
         }}
       >
         <h2>Data 출력 테스트</h2>
-        {board.error && (
+        {/* {board.error && (
           <p style={{ color: "red" }}>
             게시글을 불러오는 중 오류가 발생했습니다.
           </p>
@@ -51,7 +49,7 @@ export default async function Home() {
               </li>
             ))}
           </ul>
-        )}
+        )} */}
       </div>
     </div>
   );
