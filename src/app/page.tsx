@@ -2,7 +2,9 @@ import Image from "next/image";
 import hamm from "@/resources/images/hammm.jpg";
 
 async function getBoards() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/board`, {
+  const API_URL =
+    process.env.NEXT_PUBLIC_API_URL || "https://your-project.vercel.app";
+  const res = await fetch(`${API_URL}/api/board`, {
     cache: "no-store", // SSR을 위한 설정
   });
 
