@@ -1,5 +1,4 @@
-import { type Config } from "tailwindcss";
-import { fontFamily } from "tailwindcss/defaultTheme";
+import { TailwindConfig } from "tailwindcss/tailwind-config";
 
 const config = {
   content: ["./src/**/*.{ts,tsx}"],
@@ -22,7 +21,7 @@ const config = {
         border: "#FFC1CC",
       },
       fontFamily: {
-        sans: ["Poppins", "Inter", ...fontFamily.sans],
+        sans: ["Poppins", "Inter" ],
       },
       borderRadius: {
         xl: "1.5rem",
@@ -30,6 +29,6 @@ const config = {
     },
   },
   plugins: [],
-} satisfies Config;
+} satisfies TailwindConfig;
 
 export default config;

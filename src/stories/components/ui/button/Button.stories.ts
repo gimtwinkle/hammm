@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ComboButton from "@/lib/combo_components/combo-button";
-import { buttonVariants } from "@/components/ui/button";
-import type { VariantProps } from "class-variance-authority";
-
-type ButtonVariants = VariantProps<typeof buttonVariants>;
 
 const meta = {
   title: "Components/Button",
