@@ -2,6 +2,10 @@ import { supabase } from "@/lib/supabaseClient";
 import { makeNanoId } from "@/util/makeNanoId";
 import { NextResponse } from "next/server";
 
+// api/invite
+// GET: get all invites
+// POST: create a new invite
+
 export async function GET() {
   try {
     const { data } = await supabase.from("invite").select("*");
