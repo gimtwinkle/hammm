@@ -1,27 +1,69 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "@/components/ui/button";
+import ComboButton from "@/lib/combo_components/combo-button";
+import { buttonVariants } from "@/components/ui/button";
+import type { VariantProps } from "class-variance-authority";
 
-const meta: Meta<typeof Button> = {
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
+const meta = {
   title: "Components/Button",
-  component: Button,
-  args: {
-    children: "Click me",
+  component: ComboButton,
+  argTypes: {
+    label: {
+      control: 'text',
+      description: '버튼 텍스트',
+    },
+    variant: {
+      control: 'select',
+      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      description: '버튼 스타일',
+    },
+    size: {
+      control: 'select',
+      options: ['default', 'sm', 'lg', 'icon'],
+      description: '버튼 크기',
+    },
+    disabled: {
+      control: 'boolean',
+      description: '비활성화 여부',
+    },
   },
-};
+  tags: ['autodocs'],
+} satisfies Meta<typeof ComboButton>;
 
 export default meta;
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
-
-export const Outline: Story = {
+export const Default: Story = {
   args: {
-    variant: "outline",
+    label: 'Button',
   },
 };
 
 export const Destructive: Story = {
   args: {
-    variant: "destructive",
+    label: 'Delete',
+    variant: 'destructive',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    label: 'Outline',
+    variant: 'outline',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    label: 'Small',
+    size: 'sm',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    label: 'Large',
+    size: 'lg',
   },
 };
