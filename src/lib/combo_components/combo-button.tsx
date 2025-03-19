@@ -1,15 +1,16 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { type VariantProps } from "class-variance-authority";
-import { buttonVariants } from "@/components/ui/button";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { type VariantProps } from 'class-variance-authority';
+import { buttonVariants } from '@/components/ui/button';
 
-interface ComboButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, 
-  VariantProps<typeof buttonVariants> {
+interface ComboButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   label?: string;
 }
 
 const ComboButton = React.forwardRef<HTMLButtonElement, ComboButtonProps>(
-  ({ label = "Click me", className, variant, size, ...props }, ref) => {
+  ({ label = 'Click me', className, variant, size, ...props }, ref) => {
     return (
       <Button
         ref={ref}
@@ -24,6 +25,6 @@ const ComboButton = React.forwardRef<HTMLButtonElement, ComboButtonProps>(
   }
 );
 
-ComboButton.displayName = "ComboButton";
+ComboButton.displayName = 'ComboButton';
 
 export default ComboButton;
