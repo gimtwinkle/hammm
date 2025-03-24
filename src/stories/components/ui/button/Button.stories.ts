@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import ComboButton from "@/lib/combo_components/combo-button";
+import type { Meta, StoryObj } from '@storybook/react';
+import ComboButton from '@/components/atoms/ComboButton';
 
 const meta = {
-  title: "Components/Button",
+  title: 'Components/Button',
   component: ComboButton,
   argTypes: {
     label: {
@@ -11,7 +11,14 @@ const meta = {
     },
     variant: {
       control: 'select',
-      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+      options: [
+        'default',
+        'destructive',
+        'outline',
+        'secondary',
+        'ghost',
+        'link',
+      ],
       description: '버튼 스타일',
     },
     size: {
