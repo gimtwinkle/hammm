@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button } from '@/components/shadcn/button';
+import { Button, buttonVariants } from '@/components/shadcn/button';
 import { type VariantProps } from 'class-variance-authority';
-import { buttonVariants } from '@/components/shadcn/button';
 
 interface ComboButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
