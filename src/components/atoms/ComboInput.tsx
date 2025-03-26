@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, inputVariants } from '@/components/shadcn/input';
+import { Label } from '@radix-ui/react-label';
 import { type VariantProps } from 'class-variance-authority';
 
 interface ComboInputProps
@@ -17,7 +18,9 @@ const ComboInput = React.forwardRef<HTMLInputElement, ComboInputProps>(
   ) => {
     return (
       <div>
+        <Label>{label}</Label>
         <Input
+          ref={ref}
           id={htmlFor}
           type={type}
           variant={variant}
