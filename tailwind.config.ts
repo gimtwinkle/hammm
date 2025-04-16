@@ -1,30 +1,31 @@
-import { TailwindConfig } from "tailwindcss/tailwind-config";
+import { TailwindConfig } from 'tailwindcss/tailwind-config';
 
 const config = {
-  content: ["./src/**/*.{ts,tsx}"],
+  content: ['./src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#FFB6C1",
-          foreground: "#FFFFFF",
+          DEFAULT: '#FFB6C1',
+          foreground: '#FFFFFF',
         },
         secondary: {
-          DEFAULT: "#FFD1DC",
-          foreground: "#FFFFFF",
+          DEFAULT: '#FFD1DC',
+          foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: "#FFDEE9",
+          DEFAULT: '#FFDEE9',
         },
-        background: "#FFF0F5",
-        card: "#FFF5FA",
-        border: "#FFC1CC",
+        background: '#FFF0F5',
+        card: '#FFF5FA',
+        border: '#FFC1CC',
       },
       fontFamily: {
-        sans: ["Poppins", "Inter" ],
+        sans: ['Poppins', 'Inter'],
+        pretendard: ['Pretendard', 'sans-serif'],
       },
       borderRadius: {
-        xl: "1.5rem",
+        xl: '1.5rem',
       },
     },
   },
