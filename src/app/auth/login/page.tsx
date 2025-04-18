@@ -1,7 +1,6 @@
 'use client';
 import Image from 'next/image';
 import ComboButton from '@/components/atoms/ComboButton/ComboButton';
-import css from './page.module.css';
 import { supabase } from '@/lib/supabaseClient';
 const Login = () => {
   const handleLogin = async () => {
