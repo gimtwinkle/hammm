@@ -18,9 +18,7 @@ const Login = () => {
   };
 
   return (
-    <div
-      className={`${css['bg-gingham']} text-center px-15 py-15 w-full flex items-center h-screen`}
-    >
+    <div className="bg-gingham text-center px-15 py-15 w-full flex items-center h-screen">
       <div>
         <Image
           src="/logo.png"

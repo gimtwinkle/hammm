@@ -14,7 +14,7 @@ export function ComboText({
   variant = 'default',
   size = 'base',
   weight = 'normal',
-  as: Comp = 'p',
+  as: Text = 'p',
   className,
   children,
 }: TextProps) {
@@ -42,7 +42,7 @@ export function ComboText({
   };
 
   return (
-    <Comp
+    <Text
       className={cn(
         variantClasses[variant],
         sizeClasses[size],
@@ -51,6 +51,6 @@ export function ComboText({
       )}
     >
       {children}
-    </Comp>
+    </Text>
   );
 }

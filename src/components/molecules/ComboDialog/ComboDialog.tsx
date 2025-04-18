@@ -18,15 +18,21 @@ interface ComboDialogProps {
   content?: React.ReactNode;
   showFooter?: boolean;
   onConfirm?: () => void;
+  onCanCel?: () => void;
   triggerLabel?: string;
+  cancelBtnName: string;
+  confirmBtnName: string;
 }
 
 export const ComboDialog: React.FC<ComboDialogProps> = ({
   title = 'Dialog Title',
   description = 'This is a dialog description.',
   content = 'Dialog body content goes here.',
+  cancelBtnName,
+  confirmBtnName,
   showFooter = true,
   onConfirm,
+  onCanCel,
   triggerLabel = 'Open Dialog',
 }) => {
   return (
@@ -45,9 +51,11 @@ export const ComboDialog: React.FC<ComboDialogProps> = ({
         {showFooter && (
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant="secondary">Cancel</Button>
+              <Button onClick={onCanCel} variant="secondary">
+                {cancelBtnName}
+              </Button>
             </DialogClose>
-            <Button onClick={onConfirm}>Confirm</Button>
+            <Button onClick={onConfirm}>{confirmBtnName}</Button>
           </DialogFooter>
         )}
       </DialogContent>
