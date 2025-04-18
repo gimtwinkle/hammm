@@ -1,9 +1,9 @@
 // stories/ComboDialog.stories.tsx
 import { Meta, StoryObj } from '@storybook/react';
-import { ComboDialog } from '@/components/atoms/ComboDialog/ComboDialog';
+import { ComboDialog } from './ComboDialog';
 
 const meta: Meta<typeof ComboDialog> = {
-  title: 'Components/Dialog',
+  title: 'Components/molecules/Dialog',
   component: ComboDialog,
   tags: ['autodocs'],
   argTypes: {

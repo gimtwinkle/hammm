@@ -1,9 +1,8 @@
-// ComboInput.stories.tsx
 import { Meta, StoryObj } from '@storybook/react';
 import { ComboInput } from './ComboInput';
 
 const meta: Meta<typeof ComboInput.Text> = {
-  title: 'Components/Input',
+  title: 'Components/atoms/Input',
   component: ComboInput.Text,
   argTypes: {
     type: {
