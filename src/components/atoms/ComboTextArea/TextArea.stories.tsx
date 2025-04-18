@@ -1,9 +1,7 @@
-// stories/textarea.stories.tsx 또는 components/ui/textarea.stories.tsx
-
 import type { Meta, StoryObj } from '@storybook/react';
 import { ComboTextArea } from './ComboTextArea';
 const meta: Meta<typeof ComboTextArea> = {
-  title: 'Components/Textarea',
+  title: 'Components/atoms/Textarea',
   component: ComboTextArea,
   tags: ['autodocs'],
   argTypes: {
