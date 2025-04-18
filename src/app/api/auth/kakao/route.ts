@@ -9,19 +9,27 @@ export async function GET(request: Request) {
   if (code) {
     const cookieStore = cookies();
     const supabase = createRouteHandlerClient({ cookies: () => cookieStore });
-    
+
     try {
       const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-      
+      console.log(data);
+
       if (error) {
-        return NextResponse.redirect(`${requestUrl.origin}/login?error=${error.message}`);
+        return NextResponse.redirect(
+          `${requestUrl.origin}/login?error=${error.message}`
+        );
       }
 
       return NextResponse.redirect(requestUrl.origin);
     } catch (error) {
-      return NextResponse.redirect(`${requestUrl.origin}/login?error=Authentication failed`);
+      console.log(error);
+      return NextResponse.redirect(
+        `${requestUrl.origin}/login?error=Authentication failed`
+      );
     }
   }
 
-  return NextResponse.redirect(`${requestUrl.origin}/login?error=No code provided`);
-} 
+  return NextResponse.redirect(
+    `${requestUrl.origin}/login?error=No code provided`
+  );
+}
