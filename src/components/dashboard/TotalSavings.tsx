@@ -52,7 +52,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
-export function TotalOutcome({ className }: { className?: string }) {
+export function TotalSavings({ className }: { className?: string }) {
   const totalVisitors = React.useMemo(() => {
     return chartData.reduce((acc, curr) => acc + curr.visitors, 0);
   }, []);
@@ -60,7 +60,7 @@ export function TotalOutcome({ className }: { className?: string }) {
   return (
     <Card className={`flex flex-col${className ? ` ${className}` : ''}`}>
       <CardHeader className="items-center pb-0">
-        <CardTitle>총 지출</CardTitle>
+        <CardTitle>이번달 저축 금액</CardTitle>
         <CardDescription>2025년 5월</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
@@ -115,7 +115,7 @@ export function TotalOutcome({ className }: { className?: string }) {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 font-medium leading-none">
-          식비 소비가 전월 대비 10% 줄어듬 <TrendingUp className="h-4 w-4" />
+          이번달 적립률은 50% <TrendingUp className="h-4 w-4" />
         </div>
       </CardFooter>
     </Card>
