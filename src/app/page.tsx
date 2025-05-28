@@ -5,7 +5,7 @@ import { TotalSavings } from '@/components/dashboard/TotalSavings';
 export default async function Home() {
   return (
     <>
-      <TotalIncome wclassName="m-4" />
+      <TotalIncome className="m-4" />
       <TotalOutcome className="m-4" />
       <TotalSavings className="m-4" />
     </>
