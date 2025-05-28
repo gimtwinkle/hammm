@@ -2,13 +2,14 @@
 
 import React from 'react';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 interface BottomNavProps {
-    onVisibleChange?: (isVisible: boolean) => void;
+  onVisibleChange?: (isVisible: boolean) => void;
 }
 
 export default function BottomNav({ onVisibleChange }: BottomNavProps) {
-    const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(true);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -32,11 +33,16 @@ export default function BottomNav({ onVisibleChange }: BottomNavProps) {
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <ul className='flex gap-4 text-gray-600 dark:text-gray-300 w-full justify-between'>
-        <li className='font-bold w-full h-full text-center'>대시보드</li>
-        <li className='font-bold w-full text-center'>고정지출</li>
-        <li className='font-bold w-full text-center'>저축</li>
-        <li className='font-bold w-full text-center'>소비</li>
+      <ul className="flex gap-4 text-gray-600 dark:text-gray-300 w-full justify-between">
+        <li className="font-bold w-full h-full text-center">대시보드</li>
+        <li className="font-bold w-full text-center">
+          <Link href="/upload" className="block w-full h-full">
+            업로드
+          </Link>
+        </li>
+        <li className="font-bold w-full text-center">고정지출</li>
+        <li className="font-bold w-full text-center">저축</li>
+        <li className="font-bold w-full text-center">소비</li>
       </ul>
     </footer>
   );
